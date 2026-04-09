@@ -222,6 +222,9 @@ const structuredData = {
   ],
 }
 
+
+
+//fawad
 // ─── Premium location data ────────────────────────────────────────────────────
 const premiumLocations = [
   {
