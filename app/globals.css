@@ -1,26 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Custom Theme Configuration for Tailwind v4 */
+@theme {
+  /* Brand Colors - Cyan (Snowflake) */
+  --color-brand-cyan: #00D4FF;
+  --color-brand-cyan-light: #4DE3FF;
+  --color-brand-cyan-dark: #00A8CC;
+
+  /* Brand Colors - Purple (Flame) */
+  --color-brand-purple: #8B3FD9;
+  --color-brand-purple-light: #A666E6;
+  --color-brand-purple-dark: #6B2DB3;
+
+  /* Brand Colors - Magenta (Bright Pink Flame) */
+  --color-brand-magenta: #E61FE6;
+  --color-brand-magenta-light: #F266F2;
+  --color-brand-magenta-dark: #C000C0;
+
+  /* Brand Colors - Navy (Flame Base) */
+  --color-brand-navy: #2D3561;
+  --color-brand-navy-light: #4A5280;
+  --color-brand-navy-dark: #1A2040;
+
+  /* Primary Color Palette (Cyan) */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f3ff;
+  --color-primary-200: #b3e5ff;
+  --color-primary-300: #80d7ff;
+  --color-primary-400: #4dc9ff;
+  --color-primary-500: #00D4FF;
+  --color-primary-600: #00a8cc;
+  --color-primary-700: #007a99;
+  --color-primary-800: #005266;
+  --color-primary-900: #002933;
+
+  /* Secondary Color Palette (Purple) */
+  --color-secondary-50: #f5f0ff;
+  --color-secondary-100: #ebe0ff;
+  --color-secondary-200: #d7c2ff;
+  --color-secondary-300: #c3a3ff;
+  --color-secondary-400: #af85ff;
+  --color-secondary-500: #8B3FD9;
+  --color-secondary-600: #6f32ad;
+  --color-secondary-700: #532681;
+  --color-secondary-800: #371955;
+  --color-secondary-900: #1b0d2a;
+
+  /* Accent Color Palette (Magenta) */
+  --color-accent-50: #fff0ff;
+  --color-accent-100: #ffe0ff;
+  --color-accent-200: #ffc2ff;
+  --color-accent-300: #ffa3ff;
+  --color-accent-400: #ff85ff;
+  --color-accent-500: #E61FE6;
+  --color-accent-600: #c000c0;
+  --color-accent-700: #900090;
+  --color-accent-800: #600060;
+  --color-accent-900: #300030;
+
+  /* Custom Gradients */
+  --gradient-brand: linear-gradient(135deg, #00D4FF 0%, #8B3FD9 50%, #E61FE6 100%);
+  --gradient-brand-reverse: linear-gradient(135deg, #E61FE6 0%, #8B3FD9 50%, #00D4FF 100%);
+  --gradient-cool: linear-gradient(135deg, #00D4FF 0%, #8B3FD9 100%);
+  --gradient-warm: linear-gradient(135deg, #8B3FD9 0%, #E61FE6 100%);
+  --gradient-cyan: linear-gradient(135deg, #00D4FF 0%, #00A8CC 100%);
+  --gradient-purple: linear-gradient(135deg, #8B3FD9 0%, #6B2DB3 100%);
+  --gradient-magenta: linear-gradient(135deg, #E61FE6 0%, #C000C0 100%);
+
+  /* Custom Shadows */
+  --shadow-brand: 0 10px 40px -10px rgba(139, 63, 217, 0.4);
+  --shadow-brand-lg: 0 20px 60px -10px rgba(139, 63, 217, 0.5);
+  --shadow-cyan: 0 10px 40px -10px rgba(0, 212, 255, 0.4);
+  --shadow-magenta: 0 10px 40px -10px rgba(230, 31, 230, 0.4);
+  --shadow-brand-sm: 0 2px 8px rgba(139, 63, 217, 0.15);
+  --shadow-brand-md: 0 4px 16px rgba(139, 63, 217, 0.2);
+  --shadow-brand-xl: 0 12px 48px rgba(139, 63, 217, 0.3);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Custom Utility Classes */
+@layer utilities {
+  /* Background Gradients */
+  .bg-gradient-brand {
+    background-image: var(--gradient-brand);
+  }
+  
+  .bg-gradient-brand-reverse {
+    background-image: var(--gradient-brand-reverse);
+  }
+  
+  .bg-gradient-cool {
+    background-image: var(--gradient-cool);
+  }
+  
+  .bg-gradient-warm {
+    background-image: var(--gradient-warm);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .bg-gradient-cyan {
+    background-image: var(--gradient-cyan);
+  }
+  
+  .bg-gradient-purple {
+    background-image: var(--gradient-purple);
+  }
+  
+  .bg-gradient-magenta {
+    background-image: var(--gradient-magenta);
+  }
+
+  /* Brand Shadows */
+  .shadow-brand {
+    box-shadow: var(--shadow-brand);
+  }
+
+  .shadow-brand-sm {
+    box-shadow: var(--shadow-brand-sm);
+  }
+
+  .shadow-brand-md {
+    box-shadow: var(--shadow-brand-md);
+  }
+
+  .shadow-brand-lg {
+    box-shadow: var(--shadow-brand-lg);
+  }
+
+  .shadow-brand-xl {
+    box-shadow: var(--shadow-brand-xl);
+  }
+
+  .shadow-cyan {
+    box-shadow: var(--shadow-cyan);
+  }
+
+  .shadow-magenta {
+    box-shadow: var(--shadow-magenta);
+  }
+
+  /* Brand Text Colors */
+  .text-brand-cyan {
+    color: var(--color-brand-cyan);
+  }
+
+  .text-brand-cyan-light {
+    color: var(--color-brand-cyan-light);
+  }
+
+  .text-brand-cyan-dark {
+    color: var(--color-brand-cyan-dark);
+  }
+
+  .text-brand-purple {
+    color: var(--color-brand-purple);
+  }
+
+  .text-brand-purple-light {
+    color: var(--color-brand-purple-light);
+  }
+
+  .text-brand-purple-dark {
+    color: var(--color-brand-purple-dark);
+  }
+
+  .text-brand-magenta {
+    color: var(--color-brand-magenta);
+  }
+
+  .text-brand-magenta-light {
+    color: var(--color-brand-magenta-light);
+  }
+
+  .text-brand-magenta-dark {
+    color: var(--color-brand-magenta-dark);
+  }
+
+  .text-brand-navy {
+    color: var(--color-brand-navy);
+  }
+
+  /* Brand Background Colors */
+  .bg-brand-cyan {
+    background-color: var(--color-brand-cyan);
+  }
+
+  .bg-brand-cyan-light {
+    background-color: var(--color-brand-cyan-light);
+  }
+
+  .bg-brand-cyan-dark {
+    background-color: var(--color-brand-cyan-dark);
+  }
+
+  .bg-brand-purple {
+    background-color: var(--color-brand-purple);
+  }
+
+  .bg-brand-purple-light {
+    background-color: var(--color-brand-purple-light);
+  }
+
+  .bg-brand-purple-dark {
+    background-color: var(--color-brand-purple-dark);
+  }
+
+  .bg-brand-magenta {
+    background-color: var(--color-brand-magenta);
+  }
+
+  .bg-brand-magenta-light {
+    background-color: var(--color-brand-magenta-light);
+  }
+
+  .bg-brand-magenta-dark {
+    background-color: var(--color-brand-magenta-dark);
+  }
+
+  .bg-brand-navy {
+    background-color: var(--color-brand-navy);
+  }
+
+  /* Brand Border Colors */
+  .border-brand-cyan {
+    border-color: var(--color-brand-cyan);
+  }
+
+  .border-brand-purple {
+    border-color: var(--color-brand-purple);
+  }
+
+  .border-brand-magenta {
+    border-color: var(--color-brand-magenta);
+  }
+
+  .border-brand-navy {
+    border-color: var(--color-brand-navy);
+  }
+
+  /* Primary Colors (Cyan scale) */
+  .text-primary-500 {
+    color: var(--color-primary-500);
+  }
+
+  .bg-primary-500 {
+    background-color: var(--color-primary-500);
+  }
+
+  /* Secondary Colors (Purple scale) */
+  .text-secondary-500 {
+    color: var(--color-secondary-500);
+  }
+
+  .bg-secondary-500 {
+    background-color: var(--color-secondary-500);
+  }
+
+  /* Accent Colors (Magenta scale) */
+  .text-accent-500 {
+    color: var(--color-accent-500);
+  }
+
+  .bg-accent-500 {
+    background-color: var(--color-accent-500);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Keyframe Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
 }
