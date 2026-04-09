@@ -15,9 +15,10 @@ export default function HappyBrotherContact() {
   const timeSlots = ['Morning (8AM-12PM)', 'Afternoon (12PM-4PM)', 'Evening (4PM-8PM)', 'Flexible'];
   const propertyTypes = ['Apartment', 'Villa', 'Townhouse', 'Office', 'Commercial Building', 'Other'];
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+  setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
