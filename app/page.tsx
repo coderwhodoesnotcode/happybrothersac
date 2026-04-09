@@ -478,7 +478,7 @@ export default async function Home() {
               title="Complete Home Solutions"
               description="Professional AC repair, plumbing, electrical, and handyman services for all your home maintenance needs across Dubai"
               gradient
-              id="services-heading"
+              // id="services-heading"
             />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
               {services.map((service, idx) => (
@@ -508,7 +508,9 @@ export default async function Home() {
         {/* ── Why Choose Us ── */}
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white" aria-labelledby="features-heading">
           <div className="container mx-auto px-4">
-            <SectionHeading badge="Why Choose Us" title="Your Trusted Partner in Dubai" description="We deliver excellence in every AC repair, plumbing, and handyman service" id="features-heading" />
+            <SectionHeading badge="Why Choose Us" title="Your Trusted Partner in Dubai" description="We deliver excellence in every AC repair, plumbing, and handyman service"
+            //  id="features-heading"
+              />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
               {features.map((feature, idx) => (
                 <FeatureCard key={idx} icon={feature.icon} title={feature.title} description={feature.description} iconColor={feature.iconColor} />
@@ -532,7 +534,7 @@ export default async function Home() {
               title="Premium AC & Handyman Services Across Dubai"
               description="We specialise in high-end residential and commercial properties across Dubai's most prestigious communities — with tailored services for each neighbourhood's unique needs."
               gradient
-              id="locations-heading"
+              // id="locations-heading"
             />
 
             {/* ── Location grid ── */}
@@ -657,7 +659,7 @@ export default async function Home() {
               title="Trusted Across Dubai's Top Communities"
               description="Real reviews from satisfied customers in Palm Jumeirah, DIFC, Emirates Hills, and beyond"
               gradient
-              id="testimonials-heading"
+              // id="testimonials-heading"
             />
             <div className="grid md:grid-cols-3 gap-8 mt-16">
               {testimonials.map((testimonial, idx) => (
