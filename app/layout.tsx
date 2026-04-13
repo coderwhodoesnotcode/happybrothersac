@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     template: '%s | Happy Brother'
   },
   description: 'Professional AC repair, plumbing, electrical services & home maintenance in Dubai. Available 24/7 across all areas.',
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+  },
 }
 
 export default function RootLayout({
