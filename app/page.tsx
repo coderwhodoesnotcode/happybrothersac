@@ -124,7 +124,6 @@ const structuredData = {
         bestRating: '5',
         worstRating: '1',
       },
-      // Multiple areaServed entries for all premium Dubai locations
       areaServed: [
         { '@type': 'Place', name: 'Palm Jumeirah, Dubai' },
         { '@type': 'Place', name: 'Dubai Marina, Dubai' },
@@ -141,16 +140,15 @@ const structuredData = {
         { '@type': 'City', name: 'Dubai' },
       ],
     },
-    // ── Per-location Service schema entries (boosts local pack rankings) ──────
     ...[
       { name: 'Palm Jumeirah', lat: 25.1124, lon: 55.1390 },
       { name: 'Dubai Marina', lat: 25.0772, lon: 55.1335 },
       { name: 'Downtown Dubai', lat: 25.1972, lon: 55.2744 },
       { name: 'DIFC', lat: 25.2131, lon: 55.2819 },
       { name: 'Business Bay', lat: 25.1865, lon: 55.2627 },
-      { name: 'Emirates Hills', lat: 25.0739, lon: 55.1611 },
       { name: 'JBR', lat: 25.0800, lon: 55.1340 },
-      { name: 'Dubai Hills Estate', lat: 25.1020, lon: 55.2370 },
+      { name: 'Jumeirah', lat: 25.2048, lon: 55.2430 },
+      { name: 'Al Quoz', lat: 25.1545, lon: 55.2349 },
     ].map((loc) => ({
       '@type': 'Service',
       name: `AC Repair & Handyman Services in ${loc.name}`,
@@ -195,7 +193,7 @@ const structuredData = {
           name: 'Which premium areas in Dubai do you cover?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'We cover all premium Dubai areas including Palm Jumeirah, Dubai Marina, Downtown Dubai, DIFC, Business Bay, Emirates Hills, JBR, Dubai Hills Estate, Arabian Ranches, Jumeirah, and more.',
+            text: 'We cover all premium Dubai areas including Palm Jumeirah, Dubai Marina, Downtown Dubai, DIFC, Business Bay, JBR, Jumeirah, Al Quoz, Mirdif, and more.',
           },
         },
       ],
@@ -214,22 +212,20 @@ const structuredData = {
         availableLanguage: ['English', 'Arabic'],
       },
       sameAs: [
-        'https://facebook.com/yourcompany',
-        'https://instagram.com/yourcompany',
-        'https://twitter.com/yourcompany',
+        'https://www.facebook.com/airconditioningdubai/',
+        'https://www.instagram.com/happybrothersac',
+        'https://x.com/happybrotherac',
       ],
     },
   ],
 }
 
-
-
-//fawad
 // ─── Premium location data ────────────────────────────────────────────────────
+// NOTE: All slugs must match the areas array in data/seo-pages.ts
 const premiumLocations = [
   {
     name: 'Palm Jumeirah',
-    slug: 'palm-jumeirah',
+    slug: 'palm-jumeirah',           // ✓ exists in seo-pages.ts
     emoji: '🌴',
     tag: 'Ultra-Premium Villas & Residences',
     highlight: 'bg-amber-50 border-amber-200',
@@ -241,7 +237,7 @@ const premiumLocations = [
   },
   {
     name: 'Dubai Marina',
-    slug: 'dubai-marina',
+    slug: 'dubai-marina',            // ✓ exists in seo-pages.ts
     emoji: '🏙️',
     tag: 'Luxury High-Rise Towers',
     highlight: 'bg-sky-50 border-sky-200',
@@ -253,7 +249,7 @@ const premiumLocations = [
   },
   {
     name: 'Downtown Dubai',
-    slug: 'downtown-dubai',
+    slug: 'downtown-dubai',          // ✓ exists in seo-pages.ts
     emoji: '🏛️',
     tag: 'Burj Khalifa Neighbourhood',
     highlight: 'bg-violet-50 border-violet-200',
@@ -265,7 +261,7 @@ const premiumLocations = [
   },
   {
     name: 'DIFC',
-    slug: 'difc',
+    slug: 'difc',                    // ✓ exists in seo-pages.ts
     emoji: '💼',
     tag: 'Financial District Offices & Residences',
     highlight: 'bg-emerald-50 border-emerald-200',
@@ -277,7 +273,7 @@ const premiumLocations = [
   },
   {
     name: 'Business Bay',
-    slug: 'business-bay',
+    slug: 'business-bay',            // ✓ exists in seo-pages.ts
     emoji: '🏢',
     tag: 'Mixed Commercial & Residential',
     highlight: 'bg-rose-50 border-rose-200',
@@ -288,44 +284,43 @@ const premiumLocations = [
     avgResponseTime: '< 40 min',
   },
   {
-    name: 'Emirates Hills',
-    slug: 'emirates-hills',
+    name: 'Jumeirah',
+    slug: 'jumeirah',                // ✓ exists in seo-pages.ts
     emoji: '🏡',
-    tag: "Dubai's Most Exclusive Gated Villas",
+    tag: "Premium Beachside Villas",
     highlight: 'bg-teal-50 border-teal-200',
     badge: 'bg-teal-100 text-teal-800',
     description:
-      'Discreet, premium handyman and AC services for Emirates Hills mansions. We work with household managers and PAs to schedule around your lifestyle. Central AC, ducted systems, and smart automation expertise.',
+      'Discreet, premium handyman and AC services for Jumeirah villas and residences. We work with household managers and PAs to schedule around your lifestyle. Central AC, ducted systems, and smart automation expertise.',
     services: ['Central AC Overhaul', 'Landscape & Outdoor Electrical', 'Smart Automation Repairs', 'Concierge Booking'],
     avgResponseTime: 'Same-day priority',
   },
   {
-    name: 'JBR & JLT',
-    slug: 'jbr-jlt',
+    name: 'JBR',
+    slug: 'jbr',                     // ✓ exists in seo-pages.ts
     emoji: '🌊',
-    tag: 'Beachfront & Lake Towers',
+    tag: 'Beachfront Residences',
     highlight: 'bg-cyan-50 border-cyan-200',
     badge: 'bg-cyan-100 text-cyan-800',
     description:
-      'Fast-response AC repair and handyman services for JBR beachfront apartments and JLT residential towers. Salt-air climate expertise ensuring your AC filters and coils are protected from coastal conditions.',
+      'Fast-response AC repair and handyman services for JBR beachfront apartments. Salt-air climate expertise ensuring your AC filters and coils are protected from coastal conditions.',
     services: ['Anti-Corrosion AC Servicing', 'Coastal Electrical Protection', 'Balcony Waterproofing', 'Rapid Response'],
     avgResponseTime: '< 35 min',
   },
   {
-    name: 'Dubai Hills & Arabian Ranches',
-    slug: 'dubai-hills-arabian-ranches',
+    name: 'Mirdif & Al Quoz',
+    slug: 'mirdif',                  // ✓ exists in seo-pages.ts
     emoji: '🌿',
-    tag: 'Family Villa Communities',
+    tag: 'Family & Community Areas',
     highlight: 'bg-lime-50 border-lime-200',
     badge: 'bg-lime-100 text-lime-800',
     description:
-      'Trusted AC maintenance and handyman services for Dubai Hills Estate and Arabian Ranches villa communities. Experienced with Emaar villa layouts, central AC systems, and community-compliant exterior work.',
+      'Trusted AC maintenance and handyman services for Mirdif and Al Quoz residential communities. Experienced with villa layouts, central AC systems, and community-compliant exterior work.',
     services: ['Villa Central AC', 'Outdoor AC Units', 'Community-Compliant Work', 'Annual Service Plans'],
     avgResponseTime: '< 60 min',
   },
 ]
 
-// ─── Other static data (unchanged) ───────────────────────────────────────────
 export default async function Home() {
   const { data: posts } = await supabase
     .from('blog_posts')
@@ -387,7 +382,24 @@ export default async function Home() {
     { name: 'Mohammed Hassan', location: 'Jumeirah', rating: 5, text: 'Called them for an emergency AC repair. They came within 30 minutes and fixed it perfectly!', service: 'Emergency Service' },
     { name: 'Fatima Al-Rashidi', location: 'Palm Jumeirah', rating: 5, text: 'Incredible service for our villa on Palm. Professional, punctual, and very reasonably priced for the quality.', service: 'AC Maintenance' },
     { name: 'James Whitfield', location: 'DIFC', rating: 5, text: 'Sorted our office AC during peak summer — zero downtime. They work around our business hours too.', service: 'Commercial AC' },
-    { name: 'Layla Al-Farsi', location: 'Emirates Hills', rating: 5, text: 'They manage all our villa maintenance contracts. Discreet, reliable, and always send senior technicians.', service: 'AMC Contract' },
+    { name: 'Layla Al-Farsi', location: 'Business Bay', rating: 5, text: 'They manage all our villa maintenance contracts. Discreet, reliable, and always send senior technicians.', service: 'AMC Contract' },
+  ]
+
+  // ─── "Also serving" areas — only slugs that exist in seo-pages.ts ───────────
+  const alsoServingAreas = [
+    { label: 'JLT',                 slug: 'jlt' },
+    { label: 'Al Quoz',             slug: 'al-quoz' },
+    { label: 'Deira',               slug: 'deira' },
+    { label: 'Bur Dubai',           slug: 'bur-dubai' },
+    { label: 'Karama',              slug: 'karama' },
+    { label: 'Oud Metha',           slug: 'oud-metha' },
+    { label: 'Silicon Oasis',       slug: 'silicon-oasis' },
+    { label: 'Sports City',         slug: 'sports-city' },
+    { label: 'Al Nahda',            slug: 'al-nahda' },
+    { label: 'Al Qusais',           slug: 'al-qusais' },
+    { label: 'Discovery Gardens',   slug: 'discovery-gardens' },
+    { label: 'Festival City',       slug: 'festival-city' },
+    { label: 'Mirdif',              slug: 'mirdif' },
   ]
 
   return (
@@ -421,9 +433,9 @@ export default async function Home() {
                 <span className="text-gray-900"> Services in Dubai</span>
               </h1>
 
-              {/* Location pills — inline keyword density + UX signal */}
+              {/* Location pills */}
               <div className="flex flex-wrap justify-center gap-2" aria-label="Service areas">
-                {['Palm Jumeirah', 'Dubai Marina', 'Downtown', 'DIFC', 'Business Bay', 'Emirates Hills', 'JBR', 'Dubai Hills'].map(
+                {['Palm Jumeirah', 'Dubai Marina', 'Downtown', 'DIFC', 'Business Bay', 'Jumeirah', 'JBR', 'Mirdif'].map(
                   (area) => (
                     <span
                       key={area}
@@ -478,7 +490,6 @@ export default async function Home() {
               title="Complete Home Solutions"
               description="Professional AC repair, plumbing, electrical, and handyman services for all your home maintenance needs across Dubai"
               gradient
-              // id="services-heading"
             />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
               {services.map((service, idx) => (
@@ -492,13 +503,13 @@ export default async function Home() {
               </h2>
               <div className="prose prose-lg text-gray-600 space-y-4">
                 <p>
-                  Looking for reliable AC repair services in Dubai? We provide comprehensive air conditioning solutions including AC installation, repair, maintenance, and emergency services across all Dubai areas — from the ultra-luxury villas of Palm Jumeirah and Emirates Hills to high-rise towers in Dubai Marina, Downtown Dubai, and DIFC.
+                  Looking for reliable AC repair services in Dubai? We provide comprehensive air conditioning solutions including AC installation, repair, maintenance, and emergency services across all Dubai areas — from the ultra-luxury villas of Palm Jumeirah and Jumeirah to high-rise towers in Dubai Marina, Downtown Dubai, and DIFC.
                 </p>
                 <p>
                   Beyond AC services, we offer complete handyman solutions for your home or office. From plumbing repairs and electrical work to general maintenance, our skilled professionals deliver quality workmanship with a 100% satisfaction guarantee across every Dubai neighbourhood.
                 </p>
                 <p>
-                  We understand that home emergencies don't follow a schedule. That's why we offer 24/7 emergency services throughout Dubai Marina, Downtown Dubai, Jumeirah, Business Bay, DIFC, Palm Jumeirah, Emirates Hills, JBR, Dubai Hills Estate, Arabian Ranches, and all other Dubai communities.
+                  We understand that home emergencies don't follow a schedule. That's why we offer 24/7 emergency services throughout Dubai Marina, Downtown Dubai, Jumeirah, Business Bay, DIFC, Palm Jumeirah, JBR, Mirdif, Al Quoz, Deira, and all other Dubai communities.
                 </p>
               </div>
             </div>
@@ -508,9 +519,7 @@ export default async function Home() {
         {/* ── Why Choose Us ── */}
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white" aria-labelledby="features-heading">
           <div className="container mx-auto px-4">
-            <SectionHeading badge="Why Choose Us" title="Your Trusted Partner in Dubai" description="We deliver excellence in every AC repair, plumbing, and handyman service"
-            //  id="features-heading"
-              />
+            <SectionHeading badge="Why Choose Us" title="Your Trusted Partner in Dubai" description="We deliver excellence in every AC repair, plumbing, and handyman service" />
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
               {features.map((feature, idx) => (
                 <FeatureCard key={idx} icon={feature.icon} title={feature.title} description={feature.description} iconColor={feature.iconColor} />
@@ -519,10 +528,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ════════════════════════════════════════════════════════════════════
-            PREMIUM LOCATION SECTIONS — Core SEO addition
-            Each card = dedicated keyword cluster + schema-aligned content
-            ════════════════════════════════════════════════════════════════════ */}
+        {/* ── Premium Location Sections ── */}
         <section
           className="py-24 bg-white"
           aria-labelledby="locations-heading"
@@ -534,7 +540,6 @@ export default async function Home() {
               title="Premium AC & Handyman Services Across Dubai"
               description="We specialise in high-end residential and commercial properties across Dubai's most prestigious communities — with tailored services for each neighbourhood's unique needs."
               gradient
-              // id="locations-heading"
             />
 
             {/* ── Location grid ── */}
@@ -552,7 +557,6 @@ export default async function Home() {
                       <div className="flex items-center gap-3 mb-2">
                         <span className="text-3xl" aria-hidden="true">{loc.emoji}</span>
                         <h3 className="text-2xl font-bold text-gray-900">
-                          {/* H3 with location keyword naturally embedded */}
                           AC &amp; Handyman Services in {loc.name}
                         </h3>
                       </div>
@@ -566,12 +570,12 @@ export default async function Home() {
                     </div>
                   </div>
 
-                  {/* Description — SEO prose with location keywords */}
+                  {/* Description */}
                   <p className="text-gray-700 leading-relaxed mb-5 text-sm">
                     {loc.description}
                   </p>
 
-                  {/* Services offered — keyword-dense bullet list */}
+                  {/* Services offered */}
                   <ul
                     className="grid grid-cols-2 gap-2 mb-6"
                     aria-label={`Services offered in ${loc.name}`}
@@ -584,10 +588,10 @@ export default async function Home() {
                     ))}
                   </ul>
 
-                  {/* CTA link — internal anchor + call */}
+                  {/* CTA — links now use /ac-repair/[area-slug] which matches seo-pages.ts */}
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href={`/services/${loc.slug}`}
+                      href={`/ac-repair/${loc.slug}`}
                       className="inline-flex items-center gap-1 text-sm font-semibold text-brand-cyan hover:underline"
                       aria-label={`Learn more about our services in ${loc.name}`}
                     >
@@ -606,7 +610,7 @@ export default async function Home() {
               ))}
             </div>
 
-            {/* ── Location quick-links bar — flat internal links for crawlability ── */}
+            {/* ── "Also serving" quick-links — only areas that exist in seo-pages.ts ── */}
             <nav
               className="mt-16 p-6 bg-gray-50 rounded-2xl border border-gray-100"
               aria-label="All Dubai service areas"
@@ -615,35 +619,14 @@ export default async function Home() {
                 Also serving — AC repair &amp; handyman services in:
               </h3>
               <div className="flex flex-wrap justify-center gap-3">
-                {[
-                  'Jumeirah Village Circle',
-                  'Al Barsha',
-                  'Mirdif',
-                  'Deira',
-                  'Bur Dubai',
-                  'Oud Metha',
-                  'Dubai Silicon Oasis',
-                  'International City',
-                  'Motor City',
-                  'Sports City',
-                  'Al Nahda',
-                  'Qusais',
-                  'Muhaisnah',
-                  'Al Quoz',
-                  'Tecom',
-                  'Meadows',
-                  'Springs',
-                  'The Lakes',
-                  'Discovery Gardens',
-                  'Remraam',
-                ].map((area) => (
+                {alsoServingAreas.map(({ label, slug }) => (
                   <a
-                    key={area}
-                    href={`/services/${area.toLowerCase().replace(/\s+/g, '-')}`}
+                    key={slug}
+                    href={`/ac-repair/${slug}`}
                     className="px-3 py-1.5 text-sm text-gray-600 bg-white rounded-lg border border-gray-200 hover:border-brand-cyan hover:text-brand-cyan transition-colors shadow-sm"
-                    aria-label={`AC repair and handyman services in ${area}, Dubai`}
+                    aria-label={`AC repair and handyman services in ${label}, Dubai`}
                   >
-                    {area}
+                    {label}
                   </a>
                 ))}
               </div>
@@ -651,15 +634,14 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ── Testimonials (expanded to 6 — more premium-area social proof) ── */}
+        {/* ── Testimonials ── */}
         <section className="py-20 bg-gradient-to-br from-gray-50 to-white" aria-labelledby="testimonials-heading">
           <div className="container mx-auto px-4">
             <SectionHeading
               badge="Customer Reviews"
               title="Trusted Across Dubai's Top Communities"
-              description="Real reviews from satisfied customers in Palm Jumeirah, DIFC, Emirates Hills, and beyond"
+              description="Real reviews from satisfied customers in Palm Jumeirah, DIFC, Jumeirah, and beyond"
               gradient
-              // id="testimonials-heading"
             />
             <div className="grid md:grid-cols-3 gap-8 mt-16">
               {testimonials.map((testimonial, idx) => (
@@ -676,7 +658,7 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ── FAQ (location-enriched for SEO) ── */}
+        {/* ── FAQ ── */}
         <section className="py-20 bg-white" aria-labelledby="faq-heading">
           <div className="container mx-auto px-4 max-w-4xl">
             <h2 id="faq-heading" className="text-4xl font-bold text-center mb-12">
@@ -686,7 +668,7 @@ export default async function Home() {
               {[
                 {
                   q: 'Do you offer 24/7 emergency AC repair in Dubai?',
-                  a: 'Yes — we provide 24/7 emergency AC repair services across all Dubai areas, including Palm Jumeirah, Dubai Marina, Downtown Dubai, DIFC, Business Bay, and Emirates Hills. Our technicians are on call round the clock for urgent breakdowns.',
+                  a: 'Yes — we provide 24/7 emergency AC repair services across all Dubai areas, including Palm Jumeirah, Dubai Marina, Downtown Dubai, DIFC, Business Bay, and Jumeirah. Our technicians are on call round the clock for urgent breakdowns.',
                 },
                 {
                   q: 'Do you provide AC repair in Palm Jumeirah villas?',
@@ -697,8 +679,8 @@ export default async function Home() {
                   a: 'Yes. We offer commercial-grade AC maintenance, repair, and Annual Maintenance Contracts (AMCs) for offices and mixed-use buildings in DIFC, Business Bay, and Dubai Marina. We schedule around business hours to minimise disruption.',
                 },
                 {
-                  q: 'Which premium areas of Dubai do you cover?',
-                  a: 'We cover all premium Dubai areas including Palm Jumeirah, Dubai Marina, Downtown Dubai, DIFC, Business Bay, Emirates Hills, JBR, Dubai Hills Estate, Arabian Ranches, Jumeirah, Meadows, Springs, Al Barsha, Mirdif, and more.',
+                  q: 'Which areas of Dubai do you cover?',
+                  a: 'We cover all Dubai areas including Palm Jumeirah, Dubai Marina, Downtown Dubai, DIFC, Business Bay, JBR, Jumeirah, Mirdif, Al Quoz, Deira, Bur Dubai, Karama, JLT, Silicon Oasis, Sports City, Discovery Gardens, and more.',
                 },
                 {
                   q: 'Are your technicians licensed and insured?',
@@ -710,7 +692,7 @@ export default async function Home() {
                 },
                 {
                   q: 'Do you offer Annual Maintenance Contracts (AMC) for Dubai properties?',
-                  a: 'Yes. We offer flexible AMC plans for villas, apartments, and commercial properties across Dubai. AMC customers in premium areas like Emirates Hills, Palm Jumeirah, and Dubai Hills receive priority response and scheduled seasonal tune-ups.',
+                  a: 'Yes. We offer flexible AMC plans for villas, apartments, and commercial properties across Dubai. AMC customers in premium areas like Palm Jumeirah, Jumeirah, and Business Bay receive priority response and scheduled seasonal tune-ups.',
                 },
               ].map(({ q, a }, idx) => (
                 <div key={idx} className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
