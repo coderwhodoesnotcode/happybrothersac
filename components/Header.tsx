@@ -25,12 +25,11 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3">
             <div className="relative w-12 h-12">
               <Image
-                src="/logo.png"
-                alt="Happy Brother Logo"
-                fill
-                className="object-contain"
-                priority
-              />
+              src="/logo.png"
+              alt="Happy Brother"
+              fill
+              sizes="(max-width: 768px) 120px, 160px"
+            />
             </div>
             <div className="hidden sm:block">
               <span className="text-xl font-bold bg-gradient-brand bg-clip-text text-transparent">
