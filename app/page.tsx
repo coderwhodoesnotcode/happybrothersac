@@ -4,6 +4,7 @@ import { Wind, Droplets, Zap, Wrench, Shield, Clock, Star, CheckCircle, Phone as
 import type { Metadata } from 'next'
 import Button from '../components/ui/Button'
 import ServiceCard from '../components/ui/ServiceCard'
+// import { Analytics } from "@vercel/analytics/next"
 import FeatureCard from '../components/ui/FeatureCard'
 import SectionHeading from '../components/ui/SectionHeading'
 import CTASection from '../components/ui/CTASection'
