@@ -1,16 +1,21 @@
 import { MetadataRoute } from "next";
-import { services, areas } from "../data/seo-pages";
+import { services } from "@/lib/services-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://happybrotherac.com";
 
-  // ── Static pages ──────────────────────────────────────────────────────────
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/services`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
@@ -24,27 +29,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
   ];
 
-  // ── 300 dynamic service + area pages ─────────────────────────────────────
-  const dynamicPages: MetadataRoute.Sitemap = [];
+  const servicePages: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `${baseUrl}/services/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
 
-  for (const service of services) {
-    for (const area of areas) {
-      dynamicPages.push({
-        url: `${baseUrl}/${service.slug}/${area.slug}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.9,
-      });
-    }
-  }
-
-  return [...staticPages, ...dynamicPages];
+  return [...staticPages, ...servicePages];
 }
